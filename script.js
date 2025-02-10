@@ -12,35 +12,6 @@ fetch('footer.html')
         document.getElementById('footer').innerHTML = data;
     });
 
-
-// Slides compétences
-let slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("dot");
-    if (n > slides.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = slides.length }
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
-}
-
 // JSON
 document.addEventListener('DOMContentLoaded', () => {
     fetch('content.json')
@@ -55,4 +26,20 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('preentreprise-description').textContent = data.preentreprise.description;
         })
         .catch(error => console.error('Erreur lors du chargement du fichier JSON:', error));
-})
+});
+
+// Presentation_texte
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        const presentationText = document.querySelector('.presentation_texte_titre');
+        presentationText.classList.add('visible');
+        
+        const presentationSeparator = document.querySelector('.presentation-separator');
+        presentationSeparator.classList.add('visible');
+    }, 1000); // Délai d'une seconde
+
+    setTimeout(() => {
+        const presentationParagraph = document.querySelector('.presentation_texte_paragraphe');
+        presentationParagraph.classList.add('visible');
+    }, 2000); // Délai de deux secondes pour commencer l'animation de 3 secondes
+});
