@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="icon" href="images/iconecloud.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Présentation -->
+    <div class="divmulti">
+        <div class="divblan">
+            <div>
+                <span class="titre" id="presentation-heading"></span>
+                <hr class="sepa">
+                <br /><br />
+                <span class="texte" id="presentation-description"></span>
+                <br /><br /><br />
+                <a id="cv-link" href="images/CV.pdf" aria-label="Mon CV">
+                    <button type="button" class="download-button" id="cv-button-text" aria-label="Mon CV"></button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Compétences -->
+    <div class="divbl">
+        <div class="divtxtc">
+            <span class="titre" id="competences-heading"></span>
+            <hr class="sepa">
+            <br /><br />
+            <span class="texte" id="competences-description"></span>
+            <br /><br /><br /><br />
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 4</div>
+                    <img src="images/microsoft.png" title="image">
+                    <div class="text">Microsoft</div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 4</div>
+                    <img src="images/linux.png" title="image">
+                    <div class="text">Linux</div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 4</div>
+                    <img src="images/cisco.png" title="image">
+                    <div class="text">Cisco</div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">4 / 4</div>
+                    <img src="images/mariadb.png" title="image">
+                    <div class="text">MariaDB</div>
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br>
+            <div>
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+</body>
+
+</html>
