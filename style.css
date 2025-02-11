@@ -238,6 +238,44 @@ body {
     height: 500px;
 }
 
+/* Contact */
+.contact_fond {
+    background-color: #C8C5C0;
+    height: 1000px;
+    position: relative; /* Assurez-vous que la position est relative */
+    padding-top: 200px;
+}
+
+.contact_fond_feuille {
+    background-color: white;
+    height: 800px;
+    width: 1400px;
+    bottom: 0; /* Colle la div au bas de la div parente */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact_titre {
+    height:20%;
+    width: 100%;
+    text-align: center;
+    align-content: center;
+}
+
+.contact_texte {
+    width: 50%;
+    height: 80%;
+    text-align: center;
+    align-content: center;
+}
+
+.contact_carte {
+    width: 50%;
+    height: 80%;
+    text-align: center;
+    align-content: center;
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
 
