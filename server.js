@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Define the port number
-const port = 3000;
+const port = 3001;
 
 // Function to determine the content type based on file extension
 function getContentType(filePath) {

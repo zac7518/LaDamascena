@@ -13,7 +13,8 @@ body {
     padding-top: 60px;
 }
 
-/* Header */
+/* HEADER */
+
 .header {
     display: flex;
     align-items: center;
@@ -29,14 +30,14 @@ body {
 }
 
 .logo {
-    height: 60px; /* Ajustez la hauteur du logo selon vos besoins */
-    margin-left: 10px; /* Espace entre le logo et la navigation */
+    height: 60px; 
+    margin-left: 10px; 
 }
 
 .dropdown-nav {
     flex-grow: 1;
     display: flex;
-    justify-content: center; /* Centre les éléments horizontalement */
+    justify-content: center; 
     align-items: center;
 }
 
@@ -45,11 +46,11 @@ body {
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: center; /* Centre les éléments horizontalement */
+    justify-content: center; 
 }
 
 .dropdown-nav ul li {
-    margin-left: 20px; /* Espace entre les éléments de navigation */
+    margin-left: 20px; 
 }
 
 .dropdown-nav ul li a {
@@ -59,7 +60,8 @@ body {
     display: block;
 }
 
-/* Footer */
+/* FOOTER */
+
 .footer {
     background-color: #4D4A4C;
     color: white;
@@ -103,6 +105,7 @@ body {
 }
 
 /* BODY */
+
 #presentation,
 #competences {
     height: auto;
@@ -110,15 +113,28 @@ body {
 }
 
 /* Présentation */
-.presentation_image {
+
+.presentation_fonds {
     height: 100vh;
-    background-image: url('images/Presentation.jpg');
+    background-image: url('images/presentation_fonds_image.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.presentation_texte {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    padding: 2%;
 }
 
 .presentation_texte_titre {
@@ -130,42 +146,43 @@ body {
     color: white;
     border-radius: 5px;
     font-size: 100px;
-    opacity: 0; /* Initialement caché */
-    transition: opacity 1s ease-in-out; /* Transition pour l'effet d'apparition */
+    opacity: 0; 
+    transition: opacity 1s ease-in-out; 
 }
 
 .presentation_texte_titre.visible {
-    opacity: 1; /* Visible après l'animation */
+    opacity: 1; 
 }
 
-.presentation-separator {
+.presentation_texte_separation {
     border: none;
     border-top: 1px solid white;
-    width: 20%;
-    margin-top: 130px; /* Ajustez cette valeur pour la distance depuis le texte */
-    opacity: 0; /* Initialement caché */
-    transition: opacity 3s ease-in-out; /* Transition pour l'effet d'apparition */
+    width: 5%;
+    margin-top: 130px; 
+    opacity: 0; 
+    transition: opacity 3s ease-in-out; 
 }
 
-.presentation-separator.visible {
-    opacity: 1; /* Visible après l'animation */
+.presentation_texte_separation.visible {
+    opacity: 1; 
 }
 
 .presentation_texte_paragraphe {
     margin-top: 250px;
     color: white;
     position: absolute;
-    opacity: 0; /* Initialement caché */
-    transition: opacity 3s ease-in-out; /* Transition pour l'effet d'apparition */
+    opacity: 0; 
+    transition: opacity 3s ease-in-out; 
     font-size: 40px;
 }
 
 .presentation_texte_paragraphe.visible {
-    opacity: 1; /* Visible après l'animation */
+    opacity: 1; 
 }
 
 /* Exposition */
-.exposition_fond {
+
+.exposition_fonds {
     background-color: white;
     height:500px;
 }
@@ -178,11 +195,11 @@ body {
 }
 
 .exposition_titre .part1 {
-    color: #4D4A4C; /* Couleur pour la première partie du texte */
+    color: #4D4A4C; 
 }
 
 .exposition_titre .part2 {
-    color: #C8C5C0; /* Couleur pour la deuxième partie du texte */
+    color: #C8C5C0; 
 }
 
 .exposition_paragraphe {
@@ -195,7 +212,8 @@ body {
 }
 
 /* Galerie */
-.galerie_fond {
+
+.galerie_fonds {
     background-color: #F1EDE7;
     height: 700px;
 }
@@ -208,17 +226,17 @@ body {
 
 .galerie_carousel {
     overflow: hidden;
-    width: 80%;
+    width: 70%;
     position: relative;
     margin: 0 auto;
 }
 
-.carousel-track {
+.galerie_carousel_track {
     display: flex;
     animation: scroll 30s linear infinite;
 }
 
-.carousel-track img {
+.galerie_carousel_track img {
     width: 50%;
     flex-shrink: 0;
 }
@@ -233,16 +251,18 @@ body {
 }
 
 /* Livraison */
+
 .livraison_fond {
     background-color: white;
     height: 500px;
 }
 
 /* Contact */
+
 .contact_fond {
     background-color: #C8C5C0;
     height: 1000px;
-    position: relative; /* Assurez-vous que la position est relative */
+    position: relative; 
     padding-top: 200px;
 }
 
@@ -250,7 +270,7 @@ body {
     background-color: white;
     height: 800px;
     width: 1400px;
-    bottom: 0; /* Colle la div au bas de la div parente */
+    bottom: 0; 
     margin-left: auto;
     margin-right: auto;
 }
@@ -279,7 +299,8 @@ body {
 /* MOBILE */
 @media (max-width: 768px) {
 
-    /* Header */
+    /* HEADER */
+
     .header {
         position: fixed;
         top: 0;
@@ -290,16 +311,13 @@ body {
         border-bottom: 1px solid #ccc;
         z-index: 1000;
         justify-content: center;
-        /* Centre les éléments horizontalement */
         align-items: center;
         display: flex;
     }
 
     .dropdown-menu {
         max-width: 100%;
-        /* Limite la largeur du menu déroulant */
         width: auto;
-        /* S'ajuste à la taille de son contenu */
     }
 
     .dropdown-nav ul {
@@ -309,9 +327,8 @@ body {
 
     .dropdown-nav ul li {
         position: relative;
-        /* Nécessaire pour positionner le menu déroulant correctement */
         margin-left: 0;
-        margin-bottom: 10px; /* Espace entre les éléments de navigation en mode mobile */
+        margin-bottom: 10px; 
     }
 
     .dropdown-nav ul li a {
@@ -320,7 +337,8 @@ body {
         padding: 10px;
     }
 
-    /* Footer */
+    /* FOOTER */
+
     .footer {
         height: 100px;
         padding: 10px 0;

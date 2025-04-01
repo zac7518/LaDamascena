@@ -1,17 +1,3 @@
-// Header
-fetch('header.html')
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById('header').innerHTML = data;
-    });
-
-// Footer
-fetch('footer.html')
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById('footer').innerHTML = data;
-    });
-
 // JSON
 document.addEventListener('DOMContentLoaded', () => {
     fetch('content.json')
@@ -28,18 +14,38 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('Erreur lors du chargement du fichier JSON:', error));
 });
 
-// Presentation_texte
+// HEADER
+
+fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('header').innerHTML = data;
+    });
+
+// FOOTER 
+fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('footer').innerHTML = data;
+    });
+
+// INDEX
+
+// Présentation
+
 document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         const presentationText = document.querySelector('.presentation_texte_titre');
         presentationText.classList.add('visible');
-        
-        const presentationSeparator = document.querySelector('.presentation-separator');
+    }, 1000); 
+
+    setTimeout(() => {
+        const presentationSeparator = document.querySelector('.presentation_texte_separation');
         presentationSeparator.classList.add('visible');
-    }, 1000); // Délai d'une seconde
+    }, 2000); 
 
     setTimeout(() => {
         const presentationParagraph = document.querySelector('.presentation_texte_paragraphe');
         presentationParagraph.classList.add('visible');
-    }, 2000); // Délai de deux secondes pour commencer l'animation de 3 secondes
+    }, 3000); 
 });
