@@ -49,3 +49,45 @@ document.addEventListener('DOMContentLoaded', () => {
         presentationParagraph.classList.add('visible');
     }, 3000); 
 });
+
+// Carrousel infini fluide
+let track;
+let scrollAmount = 0;
+let paused = false;
+const SCROLL_SPEED = 1; // ajuster la vitesse ici (pixels par frame)
+
+function smoothScroll() {
+    if (!track) return requestAnimationFrame(smoothScroll);
+
+    if (!paused) {
+        scrollAmount -= SCROLL_SPEED; // Vitesse de défilement
+        track.style.transform = `translateX(${scrollAmount}px)`;
+    }
+
+    // Reset imperceptiblement quand on a parcouru la moitié
+    const trackWidth = track.scrollWidth / 2;
+    if (Math.abs(scrollAmount) >= trackWidth) {
+        scrollAmount = 0;
+        track.style.transform = `translateX(${scrollAmount}px)`; // reset instantané
+    }
+
+    requestAnimationFrame(smoothScroll);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Récupérer le track après que le DOM soit prêt
+    track = document.querySelector('.galerie_carousel_track');
+
+    if (!track) return;
+
+    // Pause au survol / reprise
+    track.addEventListener('mouseenter', () => { paused = true; });
+    track.addEventListener('mouseleave', () => { paused = false; });
+    track.addEventListener('touchstart', () => { paused = true; });
+    track.addEventListener('touchend', () => { paused = false; });
+
+    // Démarrer l'animation après un court délai pour laisser les images se charger
+    setTimeout(() => {
+        requestAnimationFrame(smoothScroll);
+    }, 100);
+});
