@@ -258,6 +258,97 @@ body {
     box-shadow: 0 10px 20px rgba(0,0,0,0.25);
 }
 
+/* Avis */
+.avis_fond {
+    background-color: #fff;
+    padding: 80px 20px;
+}
+
+.avis_titre {
+    text-align: center;
+    font-size: 50px;
+    color: #4D4A4C;
+    margin-bottom: 50px;
+}
+
+.avis_grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.avis_card {
+    background-color: #F8F4F0;
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-height: 260px;
+}
+
+.avis_card_header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.avis_avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #D2B48C, #A67C52);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.avis_author {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.avis_name {
+    font-size: 22px;
+    font-weight: 700;
+    color: #2F2B2B;
+}
+
+.avis_stars {
+    color: #D4A017;
+    font-size: 20px;
+}
+
+.avis_text {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #4D4A4C;
+}
+
+@media (max-width: 1200px) {
+    .avis_grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 760px) {
+    .avis_grid {
+        grid-template-columns: 1fr;
+    }
+
+    .avis_titre {
+        font-size: 36px;
+    }
+}
+
 @keyframes scroll {
     0% {
         transform: translateX(0);
@@ -297,7 +388,7 @@ body {
 .carte_texte {
     position: absolute;
     top: 20%;
-    left: 20%;
+    left: 15%;
     transform: translate(0, 0);
     transform-origin: top left;
     background-color: white;
