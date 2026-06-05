@@ -50,6 +50,52 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3000); 
 });
 
+function initScrollReveal() {
+    document.querySelectorAll('.avis_card').forEach((card, index) => {
+        if (!card.classList.contains('scroll-reveal')) {
+            card.classList.add('scroll-reveal');
+        }
+        if (!card.dataset.revealDelay) {
+            card.dataset.revealDelay = 300 + index * 80;
+        }
+    });
+
+    document.querySelectorAll('.carte_texte').forEach(card => {
+        if (!card.classList.contains('scroll-reveal')) {
+            card.classList.add('scroll-reveal');
+        }
+        if (!card.dataset.revealDelay) {
+            card.dataset.revealDelay = 200;
+        }
+    });
+
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    if (!revealElements.length) return;
+
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const element = entry.target;
+            const delay = parseInt(element.dataset.revealDelay, 10) || 0;
+            setTimeout(() => {
+                element.classList.add('visible');
+            }, delay);
+            obs.unobserve(element);
+        });
+    }, {
+        threshold: 0.2,
+    });
+
+    revealElements.forEach((element, index) => {
+        if (!element.dataset.revealDelay) {
+            element.dataset.revealDelay = index * 100;
+        }
+        observer.observe(element);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initScrollReveal);
+
 // Carrousel infini fluide
 let track;
 let scrollAmount = 0;
