@@ -1,4 +1,5 @@
 // JSON
+
 document.addEventListener('DOMContentLoaded', () => {
     fetch('content.json')
         .then(response => response.json())
@@ -23,6 +24,7 @@ fetch('header.html')
     });
 
 // FOOTER 
+
 fetch('footer.html')
     .then(response => response.text())
     .then(data => {
@@ -97,43 +99,85 @@ function initScrollReveal() {
 document.addEventListener('DOMContentLoaded', initScrollReveal);
 
 // Carrousel infini fluide
+
 let track;
 let scrollAmount = 0;
 let paused = false;
 const SCROLL_SPEED = 1; // ajuster la vitesse ici (pixels par frame)
+let loopWidth = 0;
+let platsData = [];
 
 function smoothScroll() {
     if (!track) return requestAnimationFrame(smoothScroll);
 
     if (!paused) {
-        scrollAmount -= SCROLL_SPEED; // Vitesse de défilement
+        scrollAmount -= SCROLL_SPEED;
+        if (Math.abs(scrollAmount) >= loopWidth) {
+            scrollAmount += loopWidth;
+        }
         track.style.transform = `translateX(${scrollAmount}px)`;
-    }
-
-    // Reset imperceptiblement quand on a parcouru la moitié
-    const trackWidth = track.scrollWidth / 2;
-    if (Math.abs(scrollAmount) >= trackWidth) {
-        scrollAmount = 0;
-        track.style.transform = `translateX(${scrollAmount}px)`; // reset instantané
     }
 
     requestAnimationFrame(smoothScroll);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Récupérer le track après que le DOM soit prêt
+    // Charger les données des plats
+    fetch('content.json')
+        .then(response => response.json())
+        .then(data => {
+            platsData = data.plats || [];
+            initCarousel();
+        })
+        .catch(error => console.error('Erreur lors du chargement des plats:', error));
+});
+
+function initCarousel() {
     track = document.querySelector('.galerie_carousel_track');
 
     if (!track) return;
 
-    // Pause au survol / reprise
-    track.addEventListener('mouseenter', () => { paused = true; });
-    track.addEventListener('mouseleave', () => { paused = false; });
+    // Remplir les informations des plats
+    const items = track.querySelectorAll('.galerie_carousel_item');
+    items.forEach((item, index) => {
+        const platIndex = index % platsData.length;
+        const plat = platsData[platIndex];
+        
+        const nameEl = item.querySelector('.galerie_carousel_name');
+        const descEl = item.querySelector('.galerie_carousel_description');
+        
+        if (nameEl) nameEl.textContent = plat.name;
+        if (descEl) descEl.textContent = plat.description;
+    });
+
+    const originalItems = Array.from(track.children);
+    if (originalItems.length === 0) return;
+
+    // Dupliquer les éléments pour créer un défilement continu
+    originalItems.forEach(item => {
+        const clone = item.cloneNode(true);
+        track.appendChild(clone);
+    });
+
+    loopWidth = track.scrollWidth / 2;
+    track.style.willChange = 'transform';
+
+    // Ajouter les événements hover sur chaque item
+    const allItems = track.querySelectorAll('.galerie_carousel_item');
+    allItems.forEach(item => {
+        item.addEventListener('mouseenter', () => { paused = true; });
+        item.addEventListener('mouseleave', () => { paused = false; });
+    });
+
     track.addEventListener('touchstart', () => { paused = true; });
     track.addEventListener('touchend', () => { paused = false; });
 
-    // Démarrer l'animation après un court délai pour laisser les images se charger
+    window.addEventListener('resize', () => {
+        loopWidth = track.scrollWidth / 2;
+    });
+
     setTimeout(() => {
         requestAnimationFrame(smoothScroll);
     }, 100);
-});
+}
+

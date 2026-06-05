@@ -11,5 +11,39 @@
     "preentreprise": {
         "heading": "Sikiwis",
         "description": "Sikiwis est une société, fondée en 2009, par un ex-consultant de McKinsey, ex-dirigeant chez Vinci et ancien directeur de la convergence des systèmes d'information et du Web chez Veolia Environnement. Après neuf ans de recherche & développement et d'implantations terrain en continu, Sikiwis accompagne les organisations dans leur transformation digitale via une plateforme révolutionnaire, la première usine digitale zéro code Digitalizr."
-    }
+    },
+    "plats": [
+        {
+            "name": "Hummus",
+            "description": "Délicieux mélange de pois chiches et tahin"
+        },
+        {
+            "name": "Falafel",
+            "description": "Boulettes croustillantes aux pois chiches et épices"
+        },
+        {
+            "name": "Chawarma",
+            "description": "Viande marinée grillée traditionnelle"
+        },
+        {
+            "name": "Grillades",
+            "description": "Sélection de viandes et légumes grillés"
+        },
+        {
+            "name": "Mezzé",
+            "description": "Assiette variée de mets syriens"
+        },
+        {
+            "name": "Mhalabieh",
+            "description": "Pâtisserie à la fleur d'oranger exquise"
+        },
+        {
+            "name": "Kibbeh",
+            "description": "Boulettes de viande hachée et blé"
+        },
+        {
+            "name": "Tabboulé",
+            "description": "Salade fraîche aux herbes et persil"
+        }
+    ]
 }
