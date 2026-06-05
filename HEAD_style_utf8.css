@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 @import url('https://fonts.google.com/share?selection.family=DM+Serif+Text:ital@0;1');
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
 
@@ -113,7 +113,7 @@ body {
     min-height: 800px;
 }
 
-/* Présentation */
+/* Pr├®sentation */
 
 .presentation_fonds {
     height: 100vh;
@@ -341,22 +341,11 @@ body {
 
 @media (max-width: 760px) {
     .avis_grid {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        gap: 20px;
-        padding: 0 16px;
+        grid-template-columns: 1fr;
     }
 
     .avis_titre {
         font-size: 36px;
-    }
-
-    .avis_card {
-        min-width: calc(100vw - 48px);
-        max-width: calc(100vw - 48px);
-        scroll-snap-align: center;
     }
 }
 
@@ -434,11 +423,6 @@ body {
 /* MOBILE */
 @media (max-width: 768px) {
 
-    body {
-        font-size: 18px;
-        padding-top: 80px;
-    }
-
     /* HEADER */
 
     .header {
@@ -447,23 +431,12 @@ body {
         left: 0;
         width: 100vw;
         background-color: white;
-        padding: 10px 12px;
+        padding: 10px;
         border-bottom: 1px solid #ccc;
         z-index: 1000;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         display: flex;
-        flex-wrap: nowrap;
-    }
-
-    .logo {
-        height: 50px;
-        margin: 0;
-    }
-
-    .dropdown-nav {
-        width: auto;
-        overflow-x: auto;
     }
 
     .dropdown-menu {
@@ -472,141 +445,20 @@ body {
     }
 
     .dropdown-nav ul {
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
-        width: auto;
-        gap: 8px;
-        white-space: nowrap;
     }
 
     .dropdown-nav ul li {
         position: relative;
         margin-left: 0;
-        margin-bottom: 0;
+        margin-bottom: 10px; 
     }
 
     .dropdown-nav ul li a {
         text-align: center;
         display: block;
         padding: 10px;
-    }
-
-    .presentation_fonds {
-        min-height: 80vh;
-        padding-top: 40px;
-    }
-
-    .presentation_texte {
-        padding: 20px;
-    }
-
-    .presentation_texte_titre {
-        position: static;
-        transform: none;
-        top: auto;
-        left: auto;
-        font-size: 3rem;
-        margin-bottom: 10px;
-    }
-
-    .presentation_texte_separation {
-        width: 50%;
-        margin: 16px auto;
-        margin-top: 0;
-    }
-
-    .presentation_texte_paragraphe {
-        position: static;
-        transform: none;
-        margin-top: 0;
-        font-size: 1.05rem;
-        max-width: 95%;
-    }
-
-    .exposition_fonds,
-    .galerie_fonds,
-    .avis_fond,
-    .carte_fond {
-        padding: 40px 0;
-        height: auto;
-    }
-
-    .exposition_titre,
-    .galerie_titre,
-    .avis_titre {
-        font-size: 2rem;
-        margin-top: 0;
-        padding: 0 20px;
-    }
-
-    .exposition_paragraphe {
-        padding: 0 20px;
-        font-size: 1rem;
-        margin-top: 20px;
-    }
-
-    .galerie_carousel {
-        width: 100%;
-        margin-top: 30px;
-    }
-
-    .galerie_carousel_track {
-        gap: 15px;
-        padding: 0 10px;
-    }
-
-    .galerie_carousel_track img {
-        width: 80%;
-        max-width: 320px;
-    }
-
-    .avis_grid {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        gap: 20px;
-        padding: 0 16px;
-    }
-
-    .avis_grid::-webkit-scrollbar {
-        height: 10px;
-    }
-
-    .avis_grid::-webkit-scrollbar-thumb {
-        background: rgba(77, 74, 76, 0.4);
-        border-radius: 8px;
-    }
-
-    .avis_card {
-        min-width: calc(100vw - 48px);
-        max-width: calc(100vw - 48px);
-        scroll-snap-align: center;
-    }
-
-    .carte_fond {
-        position: relative;
-        width: 100%;
-        height: auto;
-        padding: 30px 0;
-    }
-
-    .carte_texte {
-        position: static;
-        top: auto;
-        left: auto;
-        transform: none;
-        width: 100%;
-        max-width: 100%;
-        padding: 20px;
-        margin: 0 auto 20px auto;
-        font-size: 1rem;
-        box-sizing: border-box;
-    }
-
-    .carte_carte iframe {
-        width: 100%;
-        height: 280px;
     }
 
     /* FOOTER */
